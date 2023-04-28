@@ -19,7 +19,7 @@ class Emprestimo(models.Model):
 class Pagamento(models.Model):
     emprestimo = models.ForeignKey(Emprestimo, on_delete=models.CASCADE)
     valor = models.DecimalField(max_digits=10, decimal_places=2)
-    data = models.DateField()
+    data = models.DateField(default=timezone.now)
     usuario = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):

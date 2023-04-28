@@ -5,7 +5,7 @@ from onedata.models import Emprestimo, Pagamento
 class PagamentoSerializer(serializers.ModelSerializer):
     class Meta:
         model = Pagamento
-        fields = ['id', 'emprestimo', 'valor', 'data']
+        fields = ['id', 'emprestimo', 'valor', 'data', 'usuario']
         read_only_fields = ['id', 'data']
 
 
