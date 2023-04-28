@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from emprestimos.models import Emprestimo, Pagamento
+from onedata.models import Emprestimo, Pagamento
 
 
 class PagamentoSerializer(serializers.ModelSerializer):
