@@ -6,7 +6,7 @@ class PagamentoSerializer(serializers.ModelSerializer):
     class Meta:
         model = Pagamento
         fields = ['id', 'emprestimo', 'valor', 'data']
-        read_only_fields = fields
+        read_only_fields = ['id', 'data']
 
 
 class EmprestimoSerializer(serializers.ModelSerializer):
@@ -14,5 +14,5 @@ class EmprestimoSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Emprestimo
-        fields = ['id', 'valor_nominal', 'taxa_juros', 'ip', 'data', 'banco', 'cliente', 'pagamentos']
-        read_only_fields = fields
+        fields = ['id', 'valor_nominal', 'taxa_juros', 'ip', 'data', 'banco', 'cliente', 'pagamentos', 'usuario']
+        read_only_fields = ['id', 'data']
