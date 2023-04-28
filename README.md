@@ -1,6 +1,39 @@
-# Desafio
+# Onidata Desafio
 
 Usando [Django](https://www.djangoproject.com/) e [Django REST framework](https://www.django-rest-framework.org/) desenvolva uma API REST que permita usuários gerenciar empréstimos.
+
+## Coisas a fazer
+- Aplicar Dockerfile
+- Ajustar readme
+- Atualizar arquivo requirements.txt
+
+## Endpoints
+
+### Empréstimos
+
+| Método | Endpoint | Descrição |
+| --- | --- | --- |
+| GET | /api/emprestimos/ | Retorna uma lista de todos os empréstimos do usuário autenticado. |
+| GET | /api/emprestimos/{id}/	 | Retorna um empréstimo específico pelo seu ID, desde que o usuário autenticado seja o dono desse empréstimo. |
+| POST | /api/emprestimos/ | Cria um novo empréstimo. |
+| PUT | /api/emprestimos/{id}/ | Atualiza um empréstimo existente pelo seu ID, desde que o usuário autenticado seja o dono desse empréstimo. |
+| DELETE | /api/emprestimos/{id}/ | Exclui um empréstimo existente pelo seu ID, desde que o usuário autenticado seja o dono desse empréstimo. |
+
+### Pagamentos
+
+| Método | Endpoint | Descrição |
+| --- | --- | --- |
+| GET | /api/pagamentos/ | Retorna uma lista de todos os pagamentos do usuário autenticado. |
+| GET | /api/pagamentos/{id}/ | Retorna um pagamento específico pelo seu ID, desde que o usuário autenticado seja o dono desse pagamento. |
+| POST | /api/pagamentos/ | Cria um novo pagamento para um determinado empréstimo. |
+| PUT | /api/pagamentos/{id}/ | Atualiza um pagamento existente pelo seu ID, desde que o usuário autenticado seja o dono desse pagamento. |
+| DELETE | /api/pagamentos/{id}/ | Exclui um pagamento existente pelo seu ID, desde que o usuário autenticado seja o dono desse pagamento. |
+
+### Autenticação
+
+| Método | Endpoint | Descrição |
+| --- | --- | --- |
+| POST | /api/token/ | Retorna um token de autenticação para o usuário com as credenciais fornecidas. |
 
 ## Crtérios de aceite
 * Usuários devem ser capazes de inserir empréstimos e seus respectivos pagamentos
