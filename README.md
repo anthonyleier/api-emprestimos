@@ -7,6 +7,8 @@ Usando [Django](https://www.djangoproject.com/) e [Django REST framework](https:
 - Ajustar readme
 - Atualizar arquivo requirements.txt
 - Criar env
+- Validar . nos valores reais
+- Testes automatizados
 
 ## Endpoints
 
