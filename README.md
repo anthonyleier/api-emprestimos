@@ -2,14 +2,6 @@
 
 Usando [Django](https://www.djangoproject.com/) e [Django REST framework](https://www.django-rest-framework.org/) desenvolva uma API REST que permita usuários gerenciar empréstimos.
 
-## Coisas a fazer
-- Aplicar Dockerfile
-- Ajustar readme
-- Atualizar arquivo requirements.txt
-- Criar env
-- Validar . nos valores reais
-- Testes automatizados
-
 ## Endpoints
 
 ### Empréstimos
@@ -61,8 +53,8 @@ Usando [Django](https://www.djangoproject.com/) e [Django REST framework](https:
     * Data do pagamento (OK)
     * Valor do pagamento (OK)
 * Testes
-    * As funcionalidade principais devem estar com [testes](https://docs.djangoproject.com/en/3.1/topics/testing/) escritos
-    * Você pode decidir quais os testes que mais agregam valor ao projeto
+    * As funcionalidade principais devem estar com [testes](https://docs.djangoproject.com/en/3.1/topics/testing/) escritos (OK)
+    * Você pode decidir quais os testes que mais agregam valor ao projeto (OK)
 
 ## Extra (opcional)
 * Cálculo do saldo devedor usando [juros compostos](https://duckduckgo.com/?q=juros+compostos) [pro rata dia](https://duckduckgo.com/?q=pro+rata+dia). (OK)
