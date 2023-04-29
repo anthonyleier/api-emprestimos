@@ -1,3 +1,4 @@
+from django.http import QueryDict
 from django.shortcuts import get_object_or_404
 from rest_framework import status
 from rest_framework.views import APIView
@@ -21,6 +22,9 @@ class EmprestimosListarCriar(APIView):
         return Response(serializer.data, status=status.HTTP_200_OK)
 
     def post(self, request):
+        if type(request.data) == QueryDict:
+            request.data._mutable = True
+
         request.data['ip'] = get_ip_usuario(request)
         request.data['usuario'] = request.user.id
         serializer = EmprestimoSerializer(data=request.data, many=False)
@@ -45,6 +49,9 @@ class EmprestimoDetalhar(APIView):
         return Response(dados_emprestimo, status=status.HTTP_200_OK)
 
     def put(self, request, pk):
+        if type(request.data) == QueryDict:
+            request.data._mutable = True
+
         emprestimo = get_object_or_404(klass=Emprestimo, pk=pk, usuario=request.user)
         request.data['ip'] = get_ip_usuario(request)
         request.data['usuario'] = request.user.id
