@@ -5,9 +5,9 @@ from rest_framework.response import Response
 from rest_framework.authentication import TokenAuthentication
 from rest_framework.permissions import IsAuthenticated
 
-
 from onedata.models import Pagamento
 from onedata.serializers import PagamentoSerializer
+from onedata.utils import calcular_IOF_pagamento
 
 
 class PagamentosListarCriar(APIView):
@@ -24,6 +24,7 @@ class PagamentosListarCriar(APIView):
         serializer = PagamentoSerializer(data=request.data, many=False)
 
         if serializer.is_valid():
+            serializer.validated_data['valor'] = calcular_IOF_pagamento(serializer.validated_data['valor'], request.data['emprestimo'])
             pagamento = serializer.save()
             serializer.validated_data['id'] = pagamento.id
             serializer.validated_data['emprestimo'] = pagamento.emprestimo.id

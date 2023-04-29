@@ -8,7 +8,7 @@ from rest_framework.permissions import IsAuthenticated
 
 from onedata.models import Emprestimo
 from onedata.serializers import EmprestimoSerializer
-from onedata.utils import get_ip_usuario, calcular_saldo_devedor
+from onedata.utils import get_ip_usuario, calcular_saldo_devedor, calcular_IOF_emprestimo
 
 
 class EmprestimosListarCriar(APIView):
@@ -26,6 +26,7 @@ class EmprestimosListarCriar(APIView):
         serializer = EmprestimoSerializer(data=request.data, many=False)
 
         if serializer.is_valid():
+            serializer.validated_data['valor_nominal'] = calcular_IOF_emprestimo(serializer.validated_data['valor_nominal'])
             emprestimo = serializer.save()
             serializer.validated_data['id'] = emprestimo.id
             serializer.validated_data['usuario'] = emprestimo.usuario.id

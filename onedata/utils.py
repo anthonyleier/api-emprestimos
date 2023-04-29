@@ -1,6 +1,7 @@
-from onedata.models import Pagamento
+from decimal import Decimal
 from functools import reduce
-from datetime import datetime
+from django.utils import timezone
+from onedata.models import Emprestimo, Pagamento
 
 
 def get_ip_usuario(request):
@@ -14,13 +15,27 @@ def get_ip_usuario(request):
     return ip
 
 
+def calcular_IOF_emprestimo(valor_nominal):
+    porcentagem_IOF = Decimal(0.38)
+    valor_nominal *= 1 + porcentagem_IOF
+    return valor_nominal
+
+
+def calcular_IOF_pagamento(valor, emprestimo_id):
+    porcentagem_IOF = Decimal(0.0082)
+    emprestimo = Emprestimo.objects.get(pk=emprestimo_id)
+    dias = (timezone.now() - emprestimo.data).days
+    valor *= 1 + (porcentagem_IOF * dias)
+    return round(valor, 2)
+
+
 def calcular_meses_ativo(emprestimo):
-    data_inicial = emprestimo.data.replace(tzinfo=None)
-    data_final = datetime.now().replace(tzinfo=None)
+    data_inicial = emprestimo.data
+    data_final = timezone.now()
     diferenca_entre_datas = data_final - data_inicial
 
     # Numero de meses nao foi arrendondado para ser possível o cálculo do juros compostos pro rata die
-    meses_ativo = diferenca_entre_datas.days / 30
+    meses_ativo = Decimal(diferenca_entre_datas.days / 30)
     return meses_ativo
 
 
@@ -35,4 +50,4 @@ def calcular_saldo_devedor(emprestimo):
         valor_pago = reduce(lambda resultado, valor: resultado + valor, valores_pagamentos)
         saldo_devedor -= valor_pago
 
-    return saldo_devedor
+    return round(saldo_devedor, 2)
