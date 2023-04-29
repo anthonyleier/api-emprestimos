@@ -18,7 +18,7 @@ class EmprestimosListarCriar(APIView):
     def get(self, request):
         emprestimos = Emprestimo.objects.filter(usuario=request.user)
         serializer = EmprestimoSerializer(instance=emprestimos, many=True)
-        return Response(serializer, status=status.HTTP_200_OK)
+        return Response(serializer.data, status=status.HTTP_200_OK)
 
     def post(self, request):
         request.data['ip'] = get_ip_usuario(request)
