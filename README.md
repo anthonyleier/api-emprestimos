@@ -6,6 +6,7 @@ Usando [Django](https://www.djangoproject.com/) e [Django REST framework](https:
 - Aplicar Dockerfile
 - Ajustar readme
 - Atualizar arquivo requirements.txt
+- Criar env
 
 ## Endpoints
 

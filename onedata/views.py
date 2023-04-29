@@ -7,6 +7,7 @@ from rest_framework.permissions import IsAuthenticated
 
 from onedata.models import Emprestimo, Pagamento
 from onedata.serializers import EmprestimoSerializer, PagamentoSerializer
+from onedata.utils import get_ip_usuario
 
 
 class EmprestimoListCreate(APIView):
@@ -19,7 +20,7 @@ class EmprestimoListCreate(APIView):
         return Response(serializer.data)
 
     def post(self, request):
-        request.data['ip'] = request.META.get('REMOTE_ADDR')
+        request.data['ip'] = get_ip_usuario(request)
         request.data['usuario'] = request.user.id
         serializer = EmprestimoSerializer(data=request.data, many=False)
 
