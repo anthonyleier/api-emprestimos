@@ -18,7 +18,7 @@ def get_ip_usuario(request):
 def calcular_IOF_emprestimo(valor_nominal):
     porcentagem_IOF = Decimal(0.38)
     valor_nominal *= 1 + porcentagem_IOF
-    return valor_nominal
+    return round(valor_nominal, 2)
 
 
 def calcular_IOF_pagamento(valor, emprestimo_id):
