@@ -1,7 +1,7 @@
 from django.urls import path
 from rest_framework.authtoken.views import obtain_auth_token
-from onedata.views import EmprestimosListarCriar, EmprestimoDetalhar
-from onedata.views import PagamentosListarCriar, PagamentoDetalhar
+from onedata.views.emprestimos import EmprestimosListarCriar, EmprestimoDetalhar
+from onedata.views.pagamentos import PagamentosListarCriar, PagamentoDetalhar
 
 urlpatterns = [
     # Obter o token de autenticação
