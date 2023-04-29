@@ -3,6 +3,7 @@ from rest_framework.authtoken.views import obtain_auth_token
 from onedata.views.emprestimos import EmprestimosListarCriar, EmprestimoDetalhar
 from onedata.views.pagamentos import PagamentosListarCriar, PagamentoDetalhar
 
+
 urlpatterns = [
     # Obter o token de autenticação
     path('token/', obtain_auth_token, name='auth_token'),
