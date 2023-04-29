@@ -17,7 +17,7 @@ class PagamentosListarCriar(APIView):
     def get(self, request):
         pagamentos = Pagamento.objects.filter(usuario=request.user)
         serializer = PagamentoSerializer(instance=pagamentos, many=True)
-        return Response(serializer.data)
+        return Response(serializer.data, status=status.HTTP_200_OK)
 
     def post(self, request):
         request.data['usuario'] = request.user.id
@@ -49,7 +49,7 @@ class PagamentoDetalhar(APIView):
             serializer.validated_data['id'] = pagamento.id
             serializer.validated_data['emprestimo'] = pagamento.emprestimo.id
             serializer.validated_data['usuario'] = pagamento.usuario.id
-            return Response(serializer.validated_data, status=status.HTTP_201_CREATED)
+            return Response(serializer.validated_data, status=status.HTTP_200_OK)
 
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
