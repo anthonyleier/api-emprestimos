@@ -7,7 +7,7 @@ import django.utils.timezone
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('onedata', '0005_alter_emprestimo_data'),
+        ('onidata', '0005_alter_emprestimo_data'),
     ]
 
     operations = [

@@ -4,9 +4,9 @@ from django.utils import timezone
 from rest_framework import status
 from rest_framework.test import APITestCase
 
-from onedata.models import Emprestimo
-from onedata.serializers import EmprestimoSerializer
-from onedata.utils import calcular_IOF_emprestimo
+from onidata.models import Emprestimo
+from onidata.serializers import EmprestimoSerializer
+from onidata.utils import calcular_IOF_emprestimo
 
 
 class EmprestimosListarCriarTestCase(APITestCase):

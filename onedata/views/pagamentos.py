@@ -7,9 +7,9 @@ from rest_framework.authentication import TokenAuthentication
 from rest_framework.permissions import IsAuthenticated
 
 
-from onedata.models import Pagamento
-from onedata.serializers import PagamentoSerializer
-from onedata.utils import calcular_IOF_pagamento
+from onidata.models import Pagamento
+from onidata.serializers import PagamentoSerializer
+from onidata.utils import calcular_IOF_pagamento
 
 
 class PagamentosListarCriar(APIView):

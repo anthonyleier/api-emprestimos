@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from django.contrib.auth.models import User
-from onedata.models import Emprestimo, Pagamento
+from onidata.models import Emprestimo, Pagamento
 
 
 class EmprestimoSerializer(serializers.ModelSerializer):

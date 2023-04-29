@@ -1,7 +1,7 @@
 from decimal import Decimal
 from functools import reduce
 from django.utils import timezone
-from onedata.models import Emprestimo, Pagamento
+from onidata.models import Emprestimo, Pagamento
 
 
 def get_ip_usuario(request):

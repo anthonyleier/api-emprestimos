@@ -1,5 +1,5 @@
 from django.contrib import admin
-from onedata.models import Emprestimo, Pagamento
+from onidata.models import Emprestimo, Pagamento
 
 
 @admin.register(Emprestimo)

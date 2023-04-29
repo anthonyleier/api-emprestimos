@@ -4,8 +4,8 @@ from django.contrib.auth.models import User
 from rest_framework.test import APITestCase
 from rest_framework import status
 
-from onedata.models import Emprestimo, Pagamento
-from onedata.serializers import PagamentoSerializer
+from onidata.models import Emprestimo, Pagamento
+from onidata.serializers import PagamentoSerializer
 
 
 class PagamentosListarCriarTest(APITestCase):
