@@ -14,9 +14,13 @@ def get_ip_usuario(request):
 
 
 def calcular_saldo_devedor(emprestimo):
+    saldo_devedor = emprestimo.valor_nominal
     pagamentos = Pagamento.objects.filter(emprestimo=emprestimo.id)
-    valores_pagamentos = [pagamento.valor for pagamento in pagamentos]
 
-    valor_pago = reduce(lambda resultado, valor: resultado + valor, valores_pagamentos)
-    saldo_devedor = emprestimo.valor_nominal - valor_pago
+    if pagamentos:
+        valores_pagamentos = [pagamento.valor for pagamento in pagamentos]
+
+        valor_pago = reduce(lambda resultado, valor: resultado + valor, valores_pagamentos)
+        saldo_devedor -= valor_pago
+
     return saldo_devedor
