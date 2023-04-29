@@ -1,3 +1,4 @@
+from django.http import QueryDict
 from django.shortcuts import get_object_or_404
 from rest_framework import status
 from rest_framework.views import APIView
@@ -20,6 +21,9 @@ class PagamentosListarCriar(APIView):
         return Response(serializer.data, status=status.HTTP_200_OK)
 
     def post(self, request):
+        if type(request.data) == QueryDict:
+            request.data._mutable = True
+
         request.data['usuario'] = request.user.id
         serializer = PagamentoSerializer(data=request.data, many=False)
 
@@ -41,6 +45,9 @@ class PagamentoDetalhar(APIView):
         return Response(serializer.data)
 
     def put(self, request, pk):
+        if type(request.data) == QueryDict:
+            request.data._mutable = True
+
         pagamento = get_object_or_404(klass=Pagamento, pk=pk, usuario=request.user)
         request.data['usuario'] = request.user.id
         serializer = PagamentoSerializer(instance=pagamento, data=request.data, many=False)

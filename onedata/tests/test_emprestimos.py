@@ -72,16 +72,15 @@ class EmprestimoDetalharTestCase(APITestCase):
 
         self.token = "Token " + response.json().get('token')
         self.client.credentials(HTTP_AUTHORIZATION=self.token)
-        self.emprestimo_dados = {
-            "valor_nominal": 1000,
-            "taxa_juros": 0.05,
-            "banco": "Banco do Brasil",
-            "cliente": "Júlia Gonçalves Oliveira",
-            "data": timezone.now(),
-            "ip": "127.0.0.1",
-        }
-
-        self.emprestimo = Emprestimo.objects.create(**self.emprestimo_dados, usuario=self.usuario)
+        self.emprestimo = Emprestimo.objects.create(
+            valor_nominal=1000,
+            taxa_juros=0.05,
+            banco="Banco do Brasil",
+            cliente="Júlia Gonçalves Oliveira",
+            data=timezone.now(),
+            ip="127.0.0.1",
+            usuario=self.usuario
+        )
 
     def test_detalhar_emprestimo(self):
         url = reverse('detalhar_emprestimo', kwargs={'pk': self.emprestimo.pk})
