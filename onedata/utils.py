@@ -1,3 +1,7 @@
+from onedata.models import Pagamento
+from functools import reduce
+
+
 def get_ip_usuario(request):
     x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
 
@@ -7,3 +11,12 @@ def get_ip_usuario(request):
         ip = request.META.get('REMOTE_ADDR')
 
     return ip
+
+
+def calcular_saldo_devedor(emprestimo):
+    pagamentos = Pagamento.objects.filter(emprestimo=emprestimo.id)
+    valores_pagamentos = [pagamento.valor for pagamento in pagamentos]
+
+    valor_pago = reduce(lambda resultado, valor: resultado + valor, valores_pagamentos)
+    saldo_devedor = emprestimo.valor_nominal - valor_pago
+    return saldo_devedor
