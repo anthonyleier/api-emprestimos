@@ -41,6 +41,8 @@ def calcular_meses_ativo(emprestimo):
 
 def calcular_saldo_devedor(emprestimo):
     meses_ativo = calcular_meses_ativo(emprestimo)
+
+    # Juros compostos pro rata die
     saldo_devedor = emprestimo.valor_nominal * (1 + emprestimo.taxa_juros) ** meses_ativo
     pagamentos = Pagamento.objects.filter(emprestimo=emprestimo.id)
 
