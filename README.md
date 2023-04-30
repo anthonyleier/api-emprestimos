@@ -4,6 +4,8 @@ Usando [Django](https://www.djangoproject.com/) e [Django REST framework](https:
 
 ## Endpoints
 
+Exemplo de uso com o [Postman](https://elements.getpostman.com/redirect?entityId=24415316-b2ef6496-0002-41ad-8a33-c52f2208c913&entityType=collection)
+
 ### Empréstimos
 
 | Método | Endpoint | Descrição |
