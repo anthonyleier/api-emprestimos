@@ -1,4 +1,4 @@
-# Onidata Desafio
+# API Empréstimos
 
 Usando [Django](https://www.djangoproject.com/) e [Django REST framework](https://www.django-rest-framework.org/) desenvolva uma API REST que permita usuários gerenciar empréstimos.
 
