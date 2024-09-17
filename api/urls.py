@@ -1,7 +1,7 @@
 from django.urls import path
 from rest_framework.authtoken.views import obtain_auth_token
-from onidata.views.emprestimos import EmprestimosListarCriar, EmprestimoDetalhar
-from onidata.views.pagamentos import PagamentosListarCriar, PagamentoDetalhar
+from api.views.emprestimos import EmprestimosListarCriar, EmprestimoDetalhar
+from api.views.pagamentos import PagamentosListarCriar, PagamentoDetalhar
 
 
 urlpatterns = [

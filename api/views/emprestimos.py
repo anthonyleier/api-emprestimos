@@ -7,9 +7,9 @@ from rest_framework.authentication import TokenAuthentication
 from rest_framework.permissions import IsAuthenticated
 
 
-from onidata.models import Emprestimo
-from onidata.serializers import EmprestimoSerializer
-from onidata.utils import get_ip_usuario, calcular_saldo_devedor, calcular_IOF_emprestimo
+from api.models import Emprestimo
+from api.serializers import EmprestimoSerializer
+from api.utils import get_ip_usuario, calcular_saldo_devedor, calcular_IOF_emprestimo
 
 
 class EmprestimosListarCriar(APIView):

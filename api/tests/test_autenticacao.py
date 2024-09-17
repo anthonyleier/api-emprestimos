@@ -6,9 +6,9 @@ from rest_framework.test import APITestCase
 
 class AutenticacaoValida(APITestCase):
     def setUp(self):
-        username = "onidata"
-        email = "onidata@gmail.com"
-        password = "onidata2023"
+        username = "user"
+        email = "user@gmail.com"
+        password = "user2023"
         self.usuario = User.objects.create_user(username=username, email=email, password=password)
 
         url = reverse("auth_token")

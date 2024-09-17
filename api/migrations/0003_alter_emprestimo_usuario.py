@@ -9,7 +9,7 @@ class Migration(migrations.Migration):
 
     dependencies = [
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
-        ('onidata', '0002_pagamento_usuario_alter_emprestimo_data_and_more'),
+        ('api', '0002_pagamento_usuario_alter_emprestimo_data_and_more'),
     ]
 
     operations = [
